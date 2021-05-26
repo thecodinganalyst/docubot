@@ -1,17 +1,17 @@
-This is a boilerplate for a static website generator created with NextJS on React, using Material UI for the layout, and Cypress for testing. It also uses Typescript instead of javascript. 
+# Docubot
 
-This project will create a simple website with an Appbar and a Drawer with navigation menu at the side. The navigation menu can be altered by altering the return from the `getNavigation()` function in `/lib/content.ts`. The navigation menu is arranged by categories and item, so to modify the content for any of the pages, you'll need to modify the `/pages/[category]/[item].tsx`. 
+This is a documentation generator based on [https://github.com/thecodinganalyst/next-sample](https://github.com/thecodinganalyst/next-sample).
 
-The `index.tsx` is the main page, and it uses the `Layout` component from `/components/layout.tsx` which provides the Appbar and Drawer, so that it can be easily integrated in all the pages. It employs the `Navigation` component for each category of the navigation. 
+It will generate the documentation hosted in github as a site, to allow easy browsing.
 
-The `getStaticPaths()` in `/pages/[category]/[item].tsx` needs to return all the possible paths from /[category]/[item], in the format [{params: {category: cat1, item: item1}}, {params: {category: cat1, item: item2}}, ...]. And all the contents from all possible links within /[category]/[item] are handled in this file. 
+The documentation hosted on github need to follow the fixed format for navigation. 
+The documentation should be grouped by categories in folders, prefixed by 2 numeric digits for sequencing followed by an underscore, then the name of the category with spaces replaced by an underscore.
+For example, "01_Introduction", "02_Getting_Started"
 
-To setup the project after downloading/cloning it from github, simply run `npm install`, to get all the dependencies installed.
+Within each folder, the documentation should be in [markdown format](https://guides.github.com/features/mastering-markdown/). 
+The documentation documents should also follow the same naming convention as the category folders.
+For example, "01_Installation.md", "02_Important_Notes.md"
 
-To run in dev, `npm run dev`. 
-To build it for production, `npm run build` to build it and `npm run start` to run it on localhost:3000.
+The above format is so that we can avoid having the [front matter](https://jekyllrb.com/docs/front-matter/) as used in [Jekyll](https://jekyllrb.com/), and this is the main differentiation from using github pages, jekyll, or hugo. 
+The purpose of this is to make creation of technical documentation as easy as possible, without much configuration. So only the bare minimum functionalities are included in this project.
 
-To run the test, `npx cypress open`
-
-For more information on how this is set up, please refer to the below blog post.
-https://thecodinganalyst.github.io/knowledgebase/create-a-new-nextjs-site-with-typescript-materialui-and-cypress/
