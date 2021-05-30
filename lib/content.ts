@@ -7,13 +7,34 @@ export function getContent(category, item){
     return "This is " + item + " in " + category;
 }
 
+export async function getContentFromGithub(githubApi, githubRepo): Promise<category[]>{
+    const dirs = await githubApi.getContentDirectories(githubRepo, ['name', 'url']);
+    for(let i=0; i < dirs.length; i++){
+        let links = await githubApi.getMarkdownFilesInDirectory(dirs[i].url, ['name', 'download_url']);
+        links = links
+            .map(link => transformObj(link, ['name', 'download_url'], ['display', 'content_path']))
+            .map(link => {
+                link.display = processDisplay(link.display);
+                return link;
+            });
+        dirs[i] = transformObj(dirs[i], ['name'], ['display']);
+        dirs[i].display = processDisplay(dirs[i].display);
+        dirs[i].items = links.map(async link => {
+            link.content = await githubApi.getContent(link.content_path);
+            link.link = processLink(dirs[i].display, link.display);
+            return link;
+        })
+    }
+    return dirs;
+}
+
 export function convertCategoryListToPaths(catList: category[]){
     return catList.flatMap(dir => {
         return dir.items.map(item => {
             return {
                 params: {
-                    category: dir.display.replaceAll(' ', '_'),
-                    item: item.display.replaceAll(' ', '_'),
+                    category: processLink(dir.display),
+                    item: processLink(item.display),
                 }
             }
         })
@@ -44,8 +65,10 @@ export async function getNavigationFromGithub(githubApi, githubRepo): Promise<ca
     return dirs;
 }
 
-export function processLink(category: string, item: string){
-    return '/' + category.replaceAll(' ', '_') + '/' + item.replaceAll(' ', '_');
+export function processLink(...items: string[]){
+    return items.reduce((res, cur, i) => {
+        return res.concat('/').concat(items[i].replaceAll(' ', '_'));
+    }, "");
 }
 
 export function processDisplay(text: string){
