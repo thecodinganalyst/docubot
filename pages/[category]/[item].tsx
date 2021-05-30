@@ -11,7 +11,6 @@ export default function Item({content, categories}) {
 
 export async function getStaticPaths(){
     const paths = await getPaths();
-    console.log(paths);
     return {
         paths,
         fallback: false
