@@ -10,7 +10,7 @@ export default function Home({categories}) {
 }
 
 export async function getStaticProps(context){
-    const categories = getNavigation()
+    const categories = await getNavigation()
     return {
         props: {categories}
     }

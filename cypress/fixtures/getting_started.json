@@ -1,0 +1,130 @@
+[
+  {
+    "name": "0101_GS_Installing.md",
+    "path": "01_Getting_Started/0101_GS_Installing.md",
+    "sha": "38ec5a15e7054454beecd7b1e290b75a443bc559",
+    "size": 458,
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0101_GS_Installing.md?ref=main",
+    "html_url": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0101_GS_Installing.md",
+    "git_url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/38ec5a15e7054454beecd7b1e290b75a443bc559",
+    "download_url": "https://raw.githubusercontent.com/thecodinganalyst/hellokotlin/main/01_Getting_Started/0101_GS_Installing.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0101_GS_Installing.md?ref=main",
+      "git": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/38ec5a15e7054454beecd7b1e290b75a443bc559",
+      "html": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0101_GS_Installing.md"
+    }
+  },
+  {
+    "name": "0102_GS_Hello_World.md",
+    "path": "01_Getting_Started/0102_GS_Hello_World.md",
+    "sha": "373ec95a6c4e8dd323cc6a3591b24e598f491e5a",
+    "size": 641,
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0102_GS_Hello_World.md?ref=main",
+    "html_url": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0102_GS_Hello_World.md",
+    "git_url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/373ec95a6c4e8dd323cc6a3591b24e598f491e5a",
+    "download_url": "https://raw.githubusercontent.com/thecodinganalyst/hellokotlin/main/01_Getting_Started/0102_GS_Hello_World.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0102_GS_Hello_World.md?ref=main",
+      "git": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/373ec95a6c4e8dd323cc6a3591b24e598f491e5a",
+      "html": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0102_GS_Hello_World.md"
+    }
+  },
+  {
+    "name": "0103_GS_String_Template.md",
+    "path": "01_Getting_Started/0103_GS_String_Template.md",
+    "sha": "478e0084e9051dbc655ecffb4e95c2277b3310c5",
+    "size": 423,
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0103_GS_String_Template.md?ref=main",
+    "html_url": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0103_GS_String_Template.md",
+    "git_url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/478e0084e9051dbc655ecffb4e95c2277b3310c5",
+    "download_url": "https://raw.githubusercontent.com/thecodinganalyst/hellokotlin/main/01_Getting_Started/0103_GS_String_Template.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0103_GS_String_Template.md?ref=main",
+      "git": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/478e0084e9051dbc655ecffb4e95c2277b3310c5",
+      "html": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0103_GS_String_Template.md"
+    }
+  },
+  {
+    "name": "0104_GS_String_Literal.md",
+    "path": "01_Getting_Started/0104_GS_String_Literal.md",
+    "sha": "9f054700bf6e2ed93be08c72a3d9cded2426c262",
+    "size": 1093,
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0104_GS_String_Literal.md?ref=main",
+    "html_url": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0104_GS_String_Literal.md",
+    "git_url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/9f054700bf6e2ed93be08c72a3d9cded2426c262",
+    "download_url": "https://raw.githubusercontent.com/thecodinganalyst/hellokotlin/main/01_Getting_Started/0104_GS_String_Literal.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0104_GS_String_Literal.md?ref=main",
+      "git": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/9f054700bf6e2ed93be08c72a3d9cded2426c262",
+      "html": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0104_GS_String_Literal.md"
+    }
+  },
+  {
+    "name": "0105_GS_Variables.md",
+    "path": "01_Getting_Started/0105_GS_Variables.md",
+    "sha": "f306d4e7439b0ba0ff6d3f3c3315141859d20ce4",
+    "size": 681,
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0105_GS_Variables.md?ref=main",
+    "html_url": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0105_GS_Variables.md",
+    "git_url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/f306d4e7439b0ba0ff6d3f3c3315141859d20ce4",
+    "download_url": "https://raw.githubusercontent.com/thecodinganalyst/hellokotlin/main/01_Getting_Started/0105_GS_Variables.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0105_GS_Variables.md?ref=main",
+      "git": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/f306d4e7439b0ba0ff6d3f3c3315141859d20ce4",
+      "html": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0105_GS_Variables.md"
+    }
+  },
+  {
+    "name": "0106_GS_Basic_Types.md",
+    "path": "01_Getting_Started/0106_GS_Basic_Types.md",
+    "sha": "b778fd1213a572429b3fc9c18f3330bd2275fa12",
+    "size": 722,
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0106_GS_Basic_Types.md?ref=main",
+    "html_url": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0106_GS_Basic_Types.md",
+    "git_url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/b778fd1213a572429b3fc9c18f3330bd2275fa12",
+    "download_url": "https://raw.githubusercontent.com/thecodinganalyst/hellokotlin/main/01_Getting_Started/0106_GS_Basic_Types.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0106_GS_Basic_Types.md?ref=main",
+      "git": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/b778fd1213a572429b3fc9c18f3330bd2275fa12",
+      "html": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0106_GS_Basic_Types.md"
+    }
+  },
+  {
+    "name": "0107_GS_Arrays.md",
+    "path": "01_Getting_Started/0107_GS_Arrays.md",
+    "sha": "5f496a51d7e8b43be2799f0e6dd7094ac886ae5e",
+    "size": 2001,
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0107_GS_Arrays.md?ref=main",
+    "html_url": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0107_GS_Arrays.md",
+    "git_url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/5f496a51d7e8b43be2799f0e6dd7094ac886ae5e",
+    "download_url": "https://raw.githubusercontent.com/thecodinganalyst/hellokotlin/main/01_Getting_Started/0107_GS_Arrays.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0107_GS_Arrays.md?ref=main",
+      "git": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/blobs/5f496a51d7e8b43be2799f0e6dd7094ac886ae5e",
+      "html": "https://github.com/thecodinganalyst/hellokotlin/blob/main/01_Getting_Started/0107_GS_Arrays.md"
+    }
+  },
+  {
+    "name": "code",
+    "path": "01_Getting_Started/code",
+    "sha": "ffb212521cc57f724dfb3503552a0851dce9e580",
+    "size": 0,
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/code?ref=main",
+    "html_url": "https://github.com/thecodinganalyst/hellokotlin/tree/main/01_Getting_Started/code",
+    "git_url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/trees/ffb212521cc57f724dfb3503552a0851dce9e580",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/code?ref=main",
+      "git": "https://api.github.com/repos/thecodinganalyst/hellokotlin/git/trees/ffb212521cc57f724dfb3503552a0851dce9e580",
+      "html": "https://github.com/thecodinganalyst/hellokotlin/tree/main/01_Getting_Started/code"
+    }
+  }
+]

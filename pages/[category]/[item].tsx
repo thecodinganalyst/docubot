@@ -10,7 +10,8 @@ export default function Item({content, categories}) {
 }
 
 export async function getStaticPaths(){
-    const paths = getPaths();
+    const paths = await getPaths();
+    console.log(paths);
     return {
         paths,
         fallback: false
@@ -19,7 +20,7 @@ export async function getStaticPaths(){
 
 export async function getStaticProps(context){
     const content = getContent(context.params.category, context.params.item);
-    const categories = getNavigation();
+    const categories = await getNavigation();
     return {
         props: {content, categories}
     }

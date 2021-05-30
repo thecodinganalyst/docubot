@@ -1,4 +1,8 @@
 {
   "baseUrl": "http://localhost:3000",
-  "nodeVersion": "system"
+  "nodeVersion": "system",
+  "env": {
+    "GITHUB_API_PERSONAL_ACCESS_TOKEN": "GET_YOUR_OWN_TOKEN_FROM_https://github.com/settings/tokens/new?scopes=repo",
+    "GITHUB_REPO": "/thecodinganalyst/hellokotlin"
+  }
 }

@@ -1,0 +1,48 @@
+[
+  {
+    "display": "Getting Started",
+    "items": [
+      {
+        "display": "GS Installing",
+        "link": "/Getting_Started/GS_Installing"
+      },
+      {
+        "display": "GS Hello World",
+        "link": "/Getting_Started/GS_Hello_World"
+      },
+      {
+        "display": "GS String Template",
+        "link": "/Getting_Started/GS_String_Template"
+      },
+      {
+        "display": "GS String Literal",
+        "link": "/Getting_Started/GS_String_Literal"
+      },
+      {
+        "display": "GS Variables",
+        "link": "/Getting_Started/GS_Variables"
+      },
+      {
+        "display": "GS Basic Types",
+        "link": "/Getting_Started/GS_Basic_Types"
+      },
+      {
+        "display": "GS Arrays",
+        "link": "/Getting_Started/GS_Arrays"
+      }
+    ]
+  },
+  {
+    "display": "Functions",
+    "items": [
+      {
+        "display": "FN Functions",
+        "link": "/Functions/FN_Functions"
+      },
+      {
+        "display": "FN Vararg",
+        "link": "/Functions/FN_Vararg"
+      }
+    ]
+  }
+]

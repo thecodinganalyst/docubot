@@ -1,4 +1,4 @@
-# Docubot
+# Docubot <Work In Progress>
 
 This is a documentation generator based on [https://github.com/thecodinganalyst/next-sample](https://github.com/thecodinganalyst/next-sample).
 
@@ -15,3 +15,9 @@ For example, "01_Installation.md", "02_Important_Notes.md"
 The above format is so that we can avoid having the [front matter](https://jekyllrb.com/docs/front-matter/) as used in [Jekyll](https://jekyllrb.com/), and this is the main differentiation from using github pages, jekyll, or hugo. 
 The purpose of this is to make creation of technical documentation as easy as possible, without much configuration. So only the bare minimum functionalities are included in this project.
 
+## Set up
+
+In order to use the github api, generate a personal access token from https://github.com/settings/tokens/new?scopes=repo.
+Then provide the token in the GITHUB_API_PERSONAL_ACCESS_TOKEN field of the following files
+1. cypress.json
+2. .env

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "0101_GS_Installing.md",
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0101_GS_Installing.md?ref=main"
+  },
+  {
+    "name": "0102_GS_Hello_World.md",
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0102_GS_Hello_World.md?ref=main"
+  },
+  {
+    "name": "0103_GS_String_Template.md",
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0103_GS_String_Template.md?ref=main"
+  },
+  {
+    "name": "0104_GS_String_Literal.md",
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0104_GS_String_Literal.md?ref=main"
+  },
+  {
+    "name": "0105_GS_Variables.md",
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0105_GS_Variables.md?ref=main"
+  },
+  {
+    "name": "0106_GS_Basic_Types.md",
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0106_GS_Basic_Types.md?ref=main"
+  },
+  {
+    "name": "0107_GS_Arrays.md",
+    "url": "https://api.github.com/repos/thecodinganalyst/hellokotlin/contents/01_Getting_Started/0107_GS_Arrays.md?ref=main"
+  }
+]
