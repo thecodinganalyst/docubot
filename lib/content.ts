@@ -1,31 +1,70 @@
 import GithubApi from "./github";
+import remark from "remark";
+import html from "remark-html";
 
-const github_api_token = process.env.GITHUB_API_PERSONAL_ACCESS_TOKEN;
-const github_repo = process.env.GITHUB_REPO;
+export class Content{
+    static instance: Content;
+    private data: category[];
+    private githubApi: GithubApi;
+    private readonly githubRepo: string;
 
-export function getContent(category, item){
-    return "This is " + item + " in " + category;
-}
-
-export async function getContentFromGithub(githubApi, githubRepo): Promise<category[]>{
-    const dirs = await githubApi.getContentDirectories(githubRepo, ['name', 'url']);
-    for(let i=0; i < dirs.length; i++){
-        let links = await githubApi.getMarkdownFilesInDirectory(dirs[i].url, ['name', 'download_url']);
-        links = links
-            .map(link => transformObj(link, ['name', 'download_url'], ['display', 'content_path']))
-            .map(link => {
-                link.display = processDisplay(link.display);
-                return link;
-            });
-        dirs[i] = transformObj(dirs[i], ['name'], ['display']);
-        dirs[i].display = processDisplay(dirs[i].display);
-        dirs[i].items = links.map(async link => {
-            link.content = await githubApi.getContent(link.content_path);
-            link.link = processLink(dirs[i].display, link.display);
-            return link;
-        })
+    private constructor(github_api_token, github_repo) {
+        this.githubApi = new GithubApi(github_api_token);
+        this.githubRepo = github_repo;
     }
-    return dirs;
+    static getInstance(github_api_token, github_repo){
+        return Content.instance?? new Content(github_api_token, github_repo);
+    }
+    async getNavigation(): Promise<category[]>{
+        if(!this.data) this.data = await this.getContentFromGithub();
+        let navigation = JSON.parse(JSON.stringify(this.data));
+        for(let i=0; i<navigation.length; i++){
+            for(let j=0; j<navigation[i].items.length; j++){
+                navigation[i].items[j] = transformObj(navigation[i].items[j], ['display', 'link'], ['display', 'link']);
+            }
+        }
+        return Promise.resolve(navigation);
+    }
+    async getPaths(){
+        return convertCategoryListToPaths(await this.getNavigation());
+    }
+
+    async getContentData(category: string, item: string): Promise<string>{
+        if(!this.data) this.data = await this.getContentFromGithub();
+        for(let i=0; i<this.data.length; i++){
+            for(let j=0; j<this.data[i].items.length; j++){
+                const cat = replaceSpaceWithUnderscore(this.data[i].display);
+                const ite = replaceSpaceWithUnderscore(this.data[i].items[j].display);
+                if(cat == category && ite == item){
+                    return Promise.resolve(this.data[i].items[j].content);
+                }
+            }
+        }
+        return null;
+    }
+
+    async getContentFromGithub(): Promise<category[]>{
+        const dirs = await this.githubApi.getContentDirectories(this.githubRepo, ['name', 'url']);
+        for(let i=0; i < dirs.length; i++){
+            let links = await this.githubApi.getMarkdownFilesInDirectory(dirs[i].url, ['name', 'download_url']);
+            links = links
+                .map(link => transformObj(link, ['name', 'download_url'], ['display', 'content_path']))
+                .map(link => {
+                    link.display = processDisplay(link.display);
+                    return link;
+                });
+            dirs[i] = transformObj(dirs[i], ['name'], ['display']);
+            dirs[i].display = processDisplay(dirs[i].display);
+            dirs[i].items = await Promise.all(
+                links.map(async link => {
+                    link.content = await (await fetch(link.content_path)).text();
+                    link.link = processLink(dirs[i].display, link.display);
+                    return link;
+                })
+            );
+        }
+        return dirs;
+    }
 }
 
 export function convertCategoryListToPaths(catList: category[]){
@@ -33,41 +72,21 @@ export function convertCategoryListToPaths(catList: category[]){
         return dir.items.map(item => {
             return {
                 params: {
-                    category: processLink(dir.display),
-                    item: processLink(item.display),
+                    category: replaceSpaceWithUnderscore(dir.display),
+                    item: replaceSpaceWithUnderscore(item.display),
                 }
             }
         })
     })
 }
 
-export async function getPaths(){
-    return convertCategoryListToPaths(await getNavigation());
-}
-
-export async function getNavigationFromGithub(githubApi, githubRepo): Promise<category[]>{
-    const dirs = await githubApi.getContentDirectories(githubRepo, ['name', 'url']);
-    for(let i=0; i < dirs.length; i++){
-        let links = await githubApi.getMarkdownFilesInDirectory(dirs[i].url, ['name', 'download_url']);
-        links = links
-            .map(link => transformObj(link, ['name', 'download_url'], ['display', 'link']))
-            .map(link => {
-                link.display = processDisplay(link.display);
-                return link;
-            });
-        dirs[i] = transformObj(dirs[i], ['name'], ['display']);
-        dirs[i].display = processDisplay(dirs[i].display);
-        dirs[i].items = links.map(link => {
-            link.link = processLink(dirs[i].display, link.display);
-            return link;
-        })
-    }
-    return dirs;
+export function replaceSpaceWithUnderscore(text: string){
+    return text.replaceAll(' ', '_');
 }
 
 export function processLink(...items: string[]){
     return items.reduce((res, cur, i) => {
-        return res.concat('/').concat(items[i].replaceAll(' ', '_'));
+        return res.concat('/').concat(replaceSpaceWithUnderscore(items[i]));
     }, "");
 }
 
@@ -78,22 +97,19 @@ export function processDisplay(text: string){
 }
 
 export function transformObj(obj: any, originalFields: string[], newFields: string[]): any{
-    return Object.keys(obj).reduce((res, curr, i) => {
-        if(originalFields.includes(curr)){
-            res[newFields[i]] = obj[curr];
+    return originalFields.reduce((res, curr, i) => {
+        if(Object.keys(obj).includes(curr)){
+            res[newFields[i]] = obj[originalFields[i]];
         }
         return res;
     }, {})
 }
 
-export async function getNavigation(): Promise<category[]>{
-    const githubApi = new GithubApi(github_api_token);
-    return getNavigationFromGithub(githubApi, github_repo);
-}
-
 export interface item{
     display: string
     link: string
+    content_path: string
+    content: string
 }
 
 export interface category{

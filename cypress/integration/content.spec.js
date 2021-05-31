@@ -1,7 +1,6 @@
 import {
+    Content,
     convertCategoryListToPaths,
-    getNavigationFromGithub,
-    getPaths,
     processDisplay,
     processLink,
     transformObj
@@ -13,12 +12,24 @@ const github_repo = Cypress.env('GITHUB_REPO');
 
 describe('getNavigationFromGithub', () => {
     it("should return correct results", async () => {
-        const githubApi = new GithubApi(github_api_token);
-        const navigation = await getNavigationFromGithub(githubApi, github_repo);
+        const content = Content.getInstance(github_api_token, github_repo);
+        const navigation = await content.getNavigation();
         expect(navigation).to.be.instanceof(Array);
         const result = navigation[0];
         expect(Object.keys(result)).to.deep.equal(['display', 'items']);
         expect(Object.keys(result.items[0])).to.deep.equal(['display', 'link']);
+    })
+})
+
+describe('getContentFromGithub', () => {
+    it("should return correct results", async () => {
+        const content = Content.getInstance(github_api_token, github_repo);
+        const navigation = await content.getContentFromGithub();
+        expect(navigation).to.be.instanceof(Array);
+        const result = navigation[0];
+        expect(Object.keys(result)).to.deep.equal(['display', 'items']);
+        expect(Object.keys(result.items[0])).to.deep.equal(['display', 'content_path', 'content', 'link']);
+        expect(typeof result.items[0].content).to.equal('string');
     })
 })
 
@@ -75,5 +86,12 @@ describe('transformObj', () => {
         const obj = {a: 1, b: 2, c: 3}
         const res = transformObj(obj, ['d', 'e'], ['f', 'g']);
         expect(Object.keys(res)).to.deep.equal([]);
+    })
+
+    it('should return correctly even when the keys are not aligned', () => {
+        const original = {a: 1, b: 2, c: 3, d: 4}
+        const expected = {a: 1, c: 3}
+        const test = transformObj(original, ['a', 'c'], ['a', 'c']);
+        expect(test).to.deep.equal(expected);
     })
 })

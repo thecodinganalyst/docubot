@@ -1,5 +1,7 @@
 import Layout from "../components/layout";
-import {getNavigation} from "../lib/content";
+import {Content} from "../lib/content";
+
+const content = Content.getInstance(process.env.GITHUB_API_PERSONAL_ACCESS_TOKEN, process.env.GITHUB_REPO);
 
 export default function Home({categories}) {
   return (
@@ -10,7 +12,7 @@ export default function Home({categories}) {
 }
 
 export async function getStaticProps(context){
-    const categories = await getNavigation()
+    const categories = await content.getNavigation()
     return {
         props: {categories}
     }

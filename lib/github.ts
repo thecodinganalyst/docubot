@@ -12,6 +12,7 @@ export default class GithubApi {
     }
 
     formCompleteUrl(url): string{
+        if(url.startsWith('http://') || url.startsWith('https://')) return url;
         return url.startsWith(github_api_url)? url : github_api_url + url;
     }
 
