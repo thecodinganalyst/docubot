@@ -57,7 +57,8 @@ export class Content{
             dirs[i].display = processDisplay(dirs[i].display);
             dirs[i].items = await Promise.all(
                 links.map(async link => {
-                    link.content = await (await fetch(link.content_path)).text();
+                    const text = await (await fetch(link.content_path)).text();
+                    link.content = (await remark().use(html).process(text)).toString();
                     link.link = processLink(dirs[i].display, link.display);
                     return link;
                 })

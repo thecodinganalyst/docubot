@@ -6,7 +6,7 @@ const content = Content.getInstance(process.env.GITHUB_API_PERSONAL_ACCESS_TOKEN
 export default function Item({contentData, categories}) {
     return (
         <Layout title="Next Sample" categories={categories}>
-            {contentData}
+            <div dangerouslySetInnerHTML={{__html: contentData}} />
         </Layout>
     );
 }
