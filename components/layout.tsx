@@ -6,7 +6,7 @@ import {
     IconButton, List, Link,
     makeStyles,
     Toolbar,
-    Typography
+    Typography, useTheme
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
@@ -15,6 +15,7 @@ import clsx from "clsx";
 
 export default function Layout({children, title, categories}){
     const drawerWidth = 250;
+    const theme = useTheme();
     const useStyles = makeStyles((theme) =>
         createStyles({
             root: {
@@ -22,9 +23,6 @@ export default function Layout({children, title, categories}){
             },
             appBar: {
                 zIndex: 2000,
-            },
-            title: {
-
             },
             drawer: {
                 width: drawerWidth,
@@ -50,6 +48,11 @@ export default function Layout({children, title, categories}){
                 }),
                 marginLeft: -drawerWidth,
                 marginTop: theme.spacing(8),
+                height: '100vh',
+                '& pre': {
+                    backgroundColor: theme.palette.info.main,
+                    padding: '10px',
+                }
             },
             mainShift: {
                 transition: theme.transitions.create('margin', {
@@ -63,7 +66,7 @@ export default function Layout({children, title, categories}){
             }
         })
     )
-    const classes = useStyles()
+    const classes = useStyles(theme);
     const [drawerOpen, setDrawerOpen] = React.useState(false);
     let nav = [];
     categories.forEach((item, index) => { nav[item.display] = index == 0 });
