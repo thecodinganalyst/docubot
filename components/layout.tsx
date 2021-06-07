@@ -52,6 +52,44 @@ export default function Layout({children, title, categories}){
                 '& pre': {
                     backgroundColor: theme.palette.info.main,
                     padding: '10px',
+                },
+                '& table': {
+                    borderStyle: 'solid',
+                    borderWidth: '1px',
+                    borderColor: theme.palette.info.main,
+                    borderCollapse: 'collapse',
+                    '& thead':{
+                        borderStyle: 'solid',
+                        borderWidth: '1px',
+                        borderColor: theme.palette.info.main,
+                        borderCollapse: 'collapse',
+                        '& tr': {
+                            borderStyle: 'solid',
+                            borderWidth: '1px',
+                            borderColor: theme.palette.info.main,
+                            borderCollapse: 'collapse',
+                            '& th': {
+                                padding: theme.spacing(1)
+                            }
+                        }
+                    },
+                    '& tbody': {
+                        borderStyle: 'solid',
+                        borderWidth: '1px',
+                        borderColor: theme.palette.info.main,
+                        borderCollapse: 'collapse',
+                        '& tr': {
+                            borderStyle: 'solid',
+                            borderWidth: '1px',
+                            borderColor: theme.palette.info.main,
+                            borderCollapse: 'collapse',
+                            '& td': {
+                                padding: theme.spacing(1)
+                            }
+                        }
+                    },
+
+
                 }
             },
             mainShift: {

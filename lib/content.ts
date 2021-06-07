@@ -1,6 +1,5 @@
 import GithubApi from "./github";
-import remark from "remark";
-import html from "remark-html";
+import * as kramed from "kramed";
 
 export class Content{
     static instance: Content;
@@ -58,7 +57,8 @@ export class Content{
             dirs[i].items = await Promise.all(
                 links.map(async link => {
                     const text = await (await fetch(link.content_path)).text();
-                    link.content = (await remark().use(html).process(text)).toString();
+                    // link.content = (await remark().use(html).process(text)).toString();
+                    link.content = kramed(text);
                     link.link = processLink(dirs[i].display, link.display);
                     return link;
                 })
