@@ -6,6 +6,7 @@ export class Content{
     private data: category[];
     private githubApi: GithubApi;
     private readonly githubRepo: string;
+    readonly default_main_file_name = 'index.md'
 
     private constructor(github_api_token, github_repo) {
         this.githubApi = new GithubApi(github_api_token);
@@ -30,7 +31,13 @@ export class Content{
     async getPaths(){
         return convertCategoryListToPaths(await this.getNavigation());
     }
-
+    async getIndexPageContent(){
+        const mainFiles = await this.githubApi.getMarkdownFilesInDirectory(this.githubRepo + '/contents', ['name', 'download_url']);
+        const mainFile = mainFiles.find(file => file.download_url.split('/').pop() == this.default_main_file_name)
+        if(!mainFile) return "";
+        const text = await (await fetch(mainFile.download_url)).text();
+        return kramed(text);
+    }
     async getContentData(category: string, item: string): Promise<string>{
         if(!this.data) this.data = await this.getContentFromGithub();
         for(let i=0; i<this.data.length; i++){

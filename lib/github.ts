@@ -33,7 +33,7 @@ export default class GithubApi {
     }
 
     async getMarkdownFilesInDirectory(dir, fields): Promise<any>{
-        const data = await this.getContent(dir);
+        const data = await this.getContent(dir)
         if(!data) return null;
         return data
             .filter(item => item.type == 'file' && item.name.endsWith(".md"))
