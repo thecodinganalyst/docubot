@@ -14,10 +14,13 @@ export class Content{
     static getInstance(github_api_token, github_repo){
         return Content.instance?? new Content(github_api_token, github_repo);
     }
+    getTitle(){
+        return this.githubRepo.split('/').pop().replace("-", " ");
+    }
     async getNavigation(): Promise<category[]>{
         if(!this.data) this.data = await this.getContentFromGithub();
         let navigation = JSON.parse(JSON.stringify(this.data));
-        for(let i=0; i<navigation.length; i++){
+        for(let i=0; i<navigation?.length; i++){
             for(let j=0; j<navigation[i].items.length; j++){
                 navigation[i].items[j] = transformObj(navigation[i].items[j], ['display', 'link'], ['display', 'link']);
             }
@@ -44,7 +47,7 @@ export class Content{
 
     async getContentFromGithub(): Promise<category[]>{
         const dirs = await this.githubApi.getContentDirectories(this.githubRepo, ['name', 'url']);
-        for(let i=0; i < dirs.length; i++){
+        for(let i=0; i < dirs?.length; i++){
             let links = await this.githubApi.getMarkdownFilesInDirectory(dirs[i].url, ['name', 'download_url']);
             links = links
                 .map(link => transformObj(link, ['name', 'download_url'], ['display', 'content_path']))
@@ -57,7 +60,6 @@ export class Content{
             dirs[i].items = await Promise.all(
                 links.map(async link => {
                     const text = await (await fetch(link.content_path)).text();
-                    // link.content = (await remark().use(html).process(text)).toString();
                     link.content = kramed(text);
                     link.link = processLink(dirs[i].display, link.display);
                     return link;
