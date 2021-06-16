@@ -18,6 +18,6 @@ The purpose of this is to make creation of technical documentation as easy as po
 ## Set up
 
 In order to use the github api, generate a personal access token from https://github.com/settings/tokens/new?scopes=repo.
-Then provide the token in the GITHUB_API_PERSONAL_ACCESS_TOKEN field of the following files
+Then provide the token in the GH_API_PERSONAL_ACCESS_TOKEN field of the following files
 1. cypress.json
 2. .env

@@ -7,8 +7,8 @@ import {
 } from "../../lib/content";
 import GithubApi from "../../lib/github";
 
-const github_api_token = Cypress.env('GITHUB_API_PERSONAL_ACCESS_TOKEN');
-const github_repo = Cypress.env('GITHUB_REPO');
+const github_api_token = Cypress.env('GH_API_PERSONAL_ACCESS_TOKEN');
+const github_repo = Cypress.env('GH_REPO');
 
 describe('getNavigationFromGithub', () => {
     it("should return correct results", async () => {

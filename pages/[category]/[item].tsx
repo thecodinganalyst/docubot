@@ -3,7 +3,7 @@ import {Content} from "../../lib/content";
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from "../../styles/theme";
 
-const content = Content.getInstance(process.env.GITHUB_API_PERSONAL_ACCESS_TOKEN, process.env.GITHUB_REPO);
+const content = Content.getInstance(process.env.GH_API_PERSONAL_ACCESS_TOKEN, process.env.GH_REPO);
 
 export default function Item({contentData, categories, title}) {
     return (
