@@ -91,7 +91,7 @@ export function convertCategoryListToPaths(catList: category[]){
 }
 
 export function replaceSpaceWithUnderscore(text: string){
-    return text.replaceAll(' ', '_');
+    return text.replaceAll(/ /g, '_');
 }
 
 export function processLink(...items: string[]){
