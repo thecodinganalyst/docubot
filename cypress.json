@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost:3000",
+  "baseUrl": "http://localhost:8080",
   "nodeVersion": "system",
   "env": {
     "GH_API_PERSONAL_ACCESS_TOKEN": "GET_YOUR_OWN_TOKEN_FROM_https://github.com/settings/tokens/new?scopes=repo",
